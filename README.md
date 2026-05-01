@@ -1,25 +1,31 @@
-# Lab02 CSS
+# Lab03 JavaScript Mini Website
 
-Практична робота: Основи CSS
+## 📌 Description
 
-Створено багатосторінковий сайт із використанням HTML та CSS.
+Multi-page website built with HTML, CSS, and JavaScript.
 
-## Структура
-- index.html
-- pages/about.html
-- pages/contact.html
-- styles/style.css
-- styles/responsive.css
-- assets/
+## 📄 Pages
 
-## Реалізовано
-- спільний дизайн для всіх сторінок
-- навігація (Flexbox)
-- таблиця
-- форма
-- зображення
-- відео та аудіо
-- адаптивність (media queries)
+* Home (index.html)
+* About (about.html)
+* Contact (contact.html)
 
-## Запуск
-Відкрити файл index.html у браузері
+## ⚙️ Features
+
+* Responsive design (mobile + desktop)
+* Navigation with active link highlighting
+* Dark / Light theme toggle (saved in localStorage)
+* Accordion (FAQ section)
+* Back-to-top button
+* Contact form:
+
+  * Validation (name, email, message)
+  * Error messages
+  * Character counter
+  * Draft saving (localStorage)
+  * FormData handling
+* Dynamic current year in footer
+
+## 🚀 How to run
+
+Open `index.html` in your browser.
