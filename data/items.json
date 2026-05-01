@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "title": "Landing Page",
+    "category": "web",
+    "description": "Simple landing page for business",
+    "price": 100,
+    "rating": 4.5
+  },
+  {
+    "id": 2,
+    "title": "Portfolio Website",
+    "category": "design",
+    "description": "Personal portfolio website",
+    "price": 150,
+    "rating": 4.7
+  },
+  {
+    "id": 3,
+    "title": "E-commerce Store",
+    "category": "web",
+    "description": "Online shop with cart",
+    "price": 300,
+    "rating": 4.9
+  },
+  {
+    "id": 4,
+    "title": "UI Kit",
+    "category": "design",
+    "description": "Modern UI components",
+    "price": 80,
+    "rating": 4.3
+  },
+  {
+    "id": 5,
+    "title": "Blog Website",
+    "category": "web",
+    "description": "Simple blog platform",
+    "price": 120,
+    "rating": 4.4
+  },
+  {
+    "id": 6,
+    "title": "Dashboard UI",
+    "category": "design",
+    "description": "Admin dashboard design",
+    "price": 200,
+    "rating": 4.6
+  },
+  {
+    "id": 7,
+    "title": "Startup Landing",
+    "category": "web",
+    "description": "Landing for startup",
+    "price": 130,
+    "rating": 4.2
+  },
+  {
+    "id": 8,
+    "title": "Mobile App UI",
+    "category": "design",
+    "description": "App interface design",
+    "price": 170,
+    "rating": 4.8
+  }
+]

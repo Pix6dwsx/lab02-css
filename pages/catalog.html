@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог</title>
+
+  <link rel="icon" href="data:,">
+
+  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="../styles/responsive.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav>
+    <a href="../index.html">Головна</a>
+    <a href="about.html">Про мене</a>
+    <a href="contact.html">Контакти</a>
+    <a href="catalog.html" class="active">Каталог</a>
+    <button class="theme-toggle" type="button">Change theme</button>
+  </nav>
+</header>
+
+<main class="container">
+
+  <h1>Каталог</h1>
+
+  <input type="text" id="search" placeholder="Пошук...">
+
+  <select id="category">
+    <option value="all">Усі</option>
+    <option value="web">Web</option>
+    <option value="design">Design</option>
+  </select>
+
+  <select id="sort">
+    <option value="">Без сортування</option>
+    <option value="price">За ціною</option>
+  </select>
+
+  <div data-catalog></div>
+
+  <button class="load-more" type="button">Показати ще</button>
+
+</main>
+
+<footer>
+  <p>© <span class="year"></span> Лещенко Дмитро</p>
+</footer>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-content">
+    <button id="close-modal" type="button">✖</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script src="../js/main.js" defer></script>
+<script src="../js/catalog.js" defer></script>
+
+</body>
+</html>

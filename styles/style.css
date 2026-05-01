@@ -10,32 +10,29 @@
   --radius-md: 12px;
 }
 
-/* 🌙 DARK THEME */
 body.theme-dark {
   --color-bg: #0f172a;
   --color-surface: #1e293b;
-  --color-text: #ffffff;
+  --color-text: #e2e8f0;
   --color-border: #334155;
 }
 
-/* RESET */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* BODY + LAYOUT */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   line-height: 1.6;
   color: var(--color-text);
   background-color: var(--color-bg);
-
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  transition: all 0.3s ease;
 }
 
 main {
@@ -43,16 +40,15 @@ main {
   padding: 20px;
 }
 
-/* CONTAINER */
 .container {
   width: min(1100px, calc(100% - 32px));
   margin: 20px auto;
   background: var(--color-surface);
   padding: 30px;
   border-radius: var(--radius-md);
+  transition: all 0.3s ease;
 }
 
-/* HEADER + NAV */
 .site-header {
   width: 100%;
   background: var(--color-primary);
@@ -78,7 +74,6 @@ nav a.active {
   color: var(--color-accent);
 }
 
-/* TYPOGRAPHY */
 h1,
 h2 {
   color: var(--color-text);
@@ -88,7 +83,6 @@ p {
   margin-bottom: 15px;
 }
 
-/* MEDIA */
 img,
 video {
   width: 100%;
@@ -101,7 +95,6 @@ audio {
   margin-top: 10px;
 }
 
-/* TABLE */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -117,16 +110,23 @@ tr:nth-child(even) {
   background: #f1f5f9;
 }
 
-/* CARD */
+body.theme-dark tr:nth-child(even) {
+  background: #1e293b;
+}
+
 .card {
   background: var(--color-surface);
   padding: 20px;
   border-radius: var(--radius-md);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
+  transition: all 0.3s ease;
 }
 
-/* FORM */
+body.theme-dark .card {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
 form {
   max-width: 500px;
 }
@@ -148,6 +148,7 @@ select {
   padding: 10px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
+  transition: all 0.3s ease;
 }
 
 input:focus,
@@ -157,7 +158,14 @@ select:focus {
   border-color: var(--color-primary);
 }
 
-/* BUTTON */
+body.theme-dark input,
+body.theme-dark textarea,
+body.theme-dark select {
+  background: #0f172a;
+  color: white;
+  border-color: #334155;
+}
+
 button {
   background: var(--color-primary);
   color: white;
@@ -173,12 +181,10 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* SECTIONS */
 section {
   margin-top: 30px;
 }
 
-/* MEDIA BLOCK */
 .two-column {
   display: flex;
   gap: 40px;
@@ -190,7 +196,6 @@ section {
   min-width: 250px;
 }
 
-/* FOOTER */
 footer {
   text-align: center;
   padding: 20px;
@@ -199,7 +204,6 @@ footer {
   color: white;
 }
 
-/* ADAPTIVE */
 @media (max-width: 768px) {
   nav {
     flex-direction: column;
@@ -220,30 +224,22 @@ footer {
   }
 }
 
-/* BACK TO TOP */
 .back-to-top {
   position: fixed;
   bottom: 20px;
   right: 20px;
-
   width: 50px;
   height: 50px;
-
-  background: white; /* белый фон */
-  color: var(--color-primary); /* синяя стрелка */
-
+  background: white;
+  color: var(--color-primary);
   border: none;
   border-radius: 50%;
-
   font-size: 20px;
   font-weight: bold;
-
   cursor: pointer;
-
   display: none;
   align-items: center;
   justify-content: center;
-
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
   transition: 0.3s;
   z-index: 1000;
@@ -257,51 +253,6 @@ footer {
   transform: translateY(-3px) scale(1.1);
   background: var(--color-primary);
   color: white;
-}
-
-/* DARK THEME */
-body.theme-dark {
-  --color-bg: #0f172a;
-  --color-surface: #1e293b;
-  --color-text: #e2e8f0;
-  --color-border: #334155;
-}
-
-/* чтобы сразу применялось */
-body.theme-dark {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-}
-
-/* карточки и контейнеры */
-body.theme-dark .container,
-body.theme-dark .card {
-  background: var(--color-surface);
-}
-
-/* таблица */
-body.theme-dark tr:nth-child(even) {
-  background: #1e293b;
-}
-
-body.theme-dark input,
-body.theme-dark textarea,
-body.theme-dark select {
-  background: #0f172a;
-  color: white;
-  border-color: #334155;
-}
-
-body.theme-dark .card {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-}
-
-body,
-.card,
-.container,
-input,
-button {
-  transition: all 0.3s ease;
 }
 
 .accordion-header {
@@ -323,4 +274,44 @@ button {
 
 .accordion-item.active .accordion-content {
   display: block;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+}
+
+.modal-content button {
+  float: right;
+  cursor: pointer;
+}
+
+.theme-dark .modal-content {
+  background: #1e293b;
+  color: #ffffff;
+}
+
+.theme-dark .modal-content button {
+  background: #3b82f6;
+  color: white;
 }

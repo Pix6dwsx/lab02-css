@@ -10,25 +10,18 @@ function init() {
   initAccordion();
 }
 
-/* =========================
-   ACTIVE NAV LINK
-========================= */
 function initActiveNav() {
   const links = document.querySelectorAll("nav a");
   const currentPage = window.location.pathname.split("/").pop();
 
   links.forEach(link => {
     const linkPage = link.getAttribute("href").split("/").pop();
-
     if (currentPage === linkPage) {
       link.classList.add("active");
     }
   });
 }
 
-/* =========================
-   MOBILE MENU (бургер)
-========================= */
 function initMenuToggle() {
   const button = document.querySelector(".menu-toggle");
   const nav = document.querySelector("nav");
@@ -41,9 +34,6 @@ function initMenuToggle() {
   });
 }
 
-/* =========================
-   THEME TOGGLE
-========================= */
 function initThemeToggle() {
   const button = document.querySelector(".theme-toggle");
   const body = document.body;
@@ -69,32 +59,19 @@ function initThemeToggle() {
   });
 }
 
-/* =========================
-   BACK TO TOP
-========================= */
 function initBackToTop() {
   const btn = document.querySelector(".back-to-top");
   if (!btn) return;
 
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      btn.classList.add("show");
-    } else {
-      btn.classList.remove("show");
-    }
+    btn.classList.toggle("show", window.scrollY > 300);
   });
 
   btn.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
 
-/* =========================
-   YEAR
-========================= */
 function initYear() {
   const yearEl = document.querySelector(".year");
   if (!yearEl) return;
@@ -102,19 +79,14 @@ function initYear() {
   yearEl.textContent = new Date().getFullYear();
 }
 
-/* =========================
-   CONTACT FORM
-========================= */
 function initContactForm() {
   const form = document.querySelector("#contact-form");
   if (!form) return;
 
   const draftKey = "contactDraft";
-
   const messageInput = form.querySelector('textarea[name="message"]');
   const charCount = form.querySelector(".char-count");
 
-  /* ===== RESTORE DATA ===== */
   const saved = JSON.parse(localStorage.getItem(draftKey) || "{}");
 
   Object.keys(saved).forEach(name => {
@@ -122,7 +94,6 @@ function initContactForm() {
     if (input) input.value = saved[name];
   });
 
-  /* ===== CHAR COUNT ===== */
   if (messageInput && charCount) {
     charCount.textContent = `${messageInput.value.length} / 200`;
 
@@ -131,14 +102,12 @@ function initContactForm() {
     });
   }
 
-  /* ===== SAVE DRAFT ===== */
   form.addEventListener("input", () => {
     const data = new FormData(form);
     const obj = Object.fromEntries(data.entries());
     localStorage.setItem(draftKey, JSON.stringify(obj));
   });
 
-  /* ===== SUBMIT ===== */
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -166,7 +135,6 @@ function initContactForm() {
 
     if (!isValid) return;
 
-    /* ===== SUCCESS BLOCK ===== */
     const result = document.createElement("div");
     result.className = "card";
     result.innerHTML = `
@@ -188,9 +156,6 @@ function initContactForm() {
   });
 }
 
-/* =========================
-   HELPERS
-========================= */
 function showError(form, name, message) {
   const input = form.querySelector(`[name="${name}"]`);
   if (!input) return;
@@ -207,12 +172,10 @@ function clearErrors(form) {
 
 function initAccordion() {
   const items = document.querySelectorAll(".accordion-item");
-
   if (!items.length) return;
 
   items.forEach(item => {
     const header = item.querySelector(".accordion-header");
-
     header.addEventListener("click", () => {
       item.classList.toggle("active");
     });
